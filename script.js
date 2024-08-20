@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Função para ajustar a data (subtrair 3 horas)
     function adjustTimestamp(timestamp) {
         const date = new Date(timestamp);
-        date.setHours(date.getHours() - 3);
+        date.setHours(date.getHours() - 3); // Ajuste de fuso horário
         return date;
     }
 
