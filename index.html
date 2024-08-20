@@ -1,36 +1,37 @@
-<!DOCTYPE html>     <!-- Declara o tipo de documento e qual versão do HTML, que no caso é HTML5 -->
-<html lang="en">        <!-- Inicia do documento HTML e define o idioma da página para ingles -->
-<head>      <!-- contém metadados e links para recursos externos -->
-    <meta charset="UTF-8">      <!-- Define a codificação de caracterer, UTF-8, que suporta a maioria dos caracteres de todos os idiomas -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">      <!-- Configura a visualização para dispositivos móveis, assim a página se ajusta para a tela do celular -->
-    <title>Sensor Data Visualization</title>        <!-- Define o título da página, isso que aparece na aba do navegador -->
-    <link rel="stylesheet" href="styles.css">       <!-- Vincula o arquivo de estilo CSS externo e aplica na página -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sensor Data Visualization</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body>      <!-- Inicia o corpo do documento HTML, onde o conteúdo visível da página é colocado -->
-    <h1>Dados dos Sensores</h1>     <!-- Adiciona um título principal para o documento HTML (h1)-->
-    <div id="data-container">       <!-- Cria uma divisão com um id, afim de agrupar os elementos que mostram os dados dos sensores -->
-        <h2>Últimos valores</h2>        <!-- Adiciona um subtítulo para a seção que mostra os últimos valores (h2) -->
-        <p>Temperatura: <span id="temperature"></span> °C</p>       <!-- Exibe um parágrafo que mostra a temperatura e um spam para a unidade desse valor -->
+<body>
+    <h1>Dados dos Sensores</h1>
+    <div id="data-container">
+        <h2>Últimos valores</h2>
+        <p>Temperatura: <span id="temperature"></span> °C</p>
         <p>Umidade do Ar: <span id="humidity-air"></span> %</p>
         <p>Umidade do Solo: <span id="humidity-soil"></span> %</p>
         <p>Pressão: <span id="pressure"></span> hPa</p>
     </div>
-    <div id="chart-container">      <!-- Cria uma divisão de gráficos para a página -->
-        <h2>Dados Gráficos</h2>     <!-- Outro subtítulo para a página (h2) -->
-        <canvas id="temperatureChart"></canvas>     <!-- Define um elemento canvas com id 'temperatureChart', é onde o gráfico de temperatura será desenhado pelo Chart.js -->
+    <div id="chart-container">
+        <h2>Dados Gráficos</h2>
+        <div id="navigation-container">
+            <button id="prevDay">Dia Anterior</button>
+            <span id="currentDate"></span>
+            <button id="nextDay">Próximo Dia</button>
+        </div>
+        <canvas id="temperatureChart"></canvas>
         <canvas id="humidityAirChart"></canvas>
         <canvas id="humiditySoilChart"></canvas>
         <canvas id="pressureChart"></canvas>
     </div>
     <!-- Carregar a biblioteca do Supabase -->
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>      <!-- Inclui a biblioteca do Supabase a partir de um CDN, permitindo interagir com o Supabase diretamente no navegador -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
     <!-- Carregar a biblioteca do Chart.js -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>       <!-- Inclui a biblioteca Chart.js a partir de um CDN, permitindo desenhar gráficos no navegador -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <!-- Carregar seu script -->
-    <script src="script.js"></script>       <!-- Inclui o arquivo de script JavaScript personalizado (script.js) que contém a lógica para buscar os dados do Supabase e desenhar os gráficos-->
+    <script src="script.js"></script>
 </body>
 </html>
-<!-- CDN (Content Delivery Network) é uma rede de servidores distribuídos geograficamente que trabalham 
- juntos para entregar conteúdo de forma mais rápida e eficiente. Quando você usa um CDN para carregar 
- bibliotecas ou outros recursos, o conteúdo é servido a partir do servidor mais próximo do usuário, 
- reduzindo o tempo de carregamento e melhorando a experiência do usuário -->
